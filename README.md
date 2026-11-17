@@ -73,6 +73,7 @@ searches each retrieve up to ten candidates before fusion.
 - An OpenRouter API key
 - A Pinecone API key
 - A Pinecone index configured for the project
+- A LangSmith API key (optional, for tracing and observability)
 
 The project currently requires Python `>=3.14`, as specified in
 [`pyproject.toml`](./pyproject.toml).
@@ -91,10 +92,46 @@ Create a local `.env` file in the project root with your own credentials:
 OPENROUTER_API_KEY=your-openrouter-api-key
 PINECONE_API_KEY=your-pinecone-api-key
 PINECONE_INDEX_NAME=your-pinecone-index-name
+
+# Optional LangSmith tracing
+LANGSMITH_TRACING=true
+LANGSMITH_API_KEY=your-langsmith-api-key
+LANGSMITH_PROJECT=evaluated-rag-assistant
 ```
 
 Never commit `.env` or API keys. Use placeholders in shared configuration
 examples and rotate any credential that may have been exposed.
+
+## LangSmith tracing
+
+The application supports LangSmith tracing for observing LangChain and
+LangGraph executions. Tracing is optional and is enabled through environment
+variables, so the same configuration works with the Streamlit UI, FastAPI
+service, and command-line evaluation scripts.
+
+### Configure LangSmith
+
+1. Create or sign in to a LangSmith account.
+2. Create an API key in the LangSmith settings.
+3. Add the following values to the local `.env` file:
+
+   ```dotenv
+   LANGSMITH_TRACING=true
+   LANGSMITH_API_KEY=your-langsmith-api-key
+   LANGSMITH_PROJECT=evaluated-rag-assistant
+   ```
+
+4. Start the application or evaluation command from the project root.
+5. Open the `evaluated-rag-assistant` project in LangSmith to inspect runs.
+
+When tracing is enabled, LangSmith can be used to inspect retrieval and
+generation runs, prompts, model responses, and the execution path through the
+RAG graph. Keep API keys only in the local `.env` file; do not paste them into
+source files, notebooks, logs, or committed configuration.
+
+To disable tracing locally, set `LANGSMITH_TRACING=false` or remove the
+LangSmith variables from `.env`. LangSmith tracing is not required for normal
+question answering or document ingestion.
 
 ## Policy documents
 
