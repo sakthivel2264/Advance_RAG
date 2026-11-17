@@ -1,0 +1,39 @@
+
+[
+  {
+    "id": "q1",
+    "question": "How many annual leave days can an employee take?",
+    "ground_truth": "Employees are eligible for 20 days of annual leave per calendar year.",
+    "relevant_document_ids": [
+      "4c74db666f0ec0f1ca0414544d9453d9bbdc264d1e2d52ff5b2cd3eaf40c5d20"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "q2",
+    "question": "How can an employee request sick leave?",
+    "ground_truth": "Employees can request sick leave when they are unable to work due to illness.",
+    "relevant_document_ids": [
+      "4c74db666f0ec0f1ca0414544d9453d9bbdc264d1e2d52ff5b2cd3eaf40c5d20"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "q3",
+    "question": "Who approves leave requests?",
+    "ground_truth": "Leave requests must be submitted to the reporting manager for approval.",
+    "relevant_document_ids": [
+      "4c74db666f0ec0f1ca0414544d9453d9bbdc264d1e2d52ff5b2cd3eaf40c5d20"
+    ],
+    "answerable": true
+  },
+  {
+    "id": "q4",
+    "question": "How many sick leave days can an employee take annually?",
+    "ground_truth": "The available policy does not specify an annual sick leave limit.",
+    "relevant_document_ids": [
+      "4c74db666f0ec0f1ca0414544d9453d9bbdc264d1e2d52ff5b2cd3eaf40c5d20"
+    ],
+    "answerable": false
+  }
+]
